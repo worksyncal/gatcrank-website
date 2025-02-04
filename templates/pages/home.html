@@ -1,0 +1,276 @@
+{{#partial "hero"}}
+    {{{region name="home_below_menu"}}}
+    {{#and carousel carousel.slides.length}}
+        {{> components/carousel arrows=theme_settings.homepage_show_carousel_arrows play_pause_button=theme_settings.homepage_show_carousel_play_pause_button}}
+    {{/and}}
+    {{{region name="home_below_carousel"}}}
+{{/partial}}
+
+{{#partial "page"}}
+
+    {{#each shipping_messages}}
+        {{> components/common/alert/alert-info message}}
+    {{/each}}
+
+<div class="main full home-page-body">
+    <div class="home-banner">
+        <div class="main-container">
+            <div class="image-container banner-container">
+                <img class="lazyload img-responsive" src="https://cdn11.bigcommerce.com/s-ngh35wij02/images/stencil/original/image-manager/home-hero.jpg?t=1675791719" alt="GatCrank" style="width: 100%; height: auto; max-width: 100%;">
+            </div>
+            <div class="text-container">
+                <div class="container">
+                    <div class="main-block">
+                        <div class="block-image-container">
+                            <div class="rotating-div">
+                                <img class="lazyload" src="https://cdn11.bigcommerce.com/s-ngh35wij02/images/stencil/original/image-manager/logo-icon.png?t=1675510725" alt="GatCrank icon">    
+                            </div>
+                        </div>
+                        <div class="block-text-container">
+                            <h2 class="page-heading">GatCrank</h2>
+                            <p class="red-text">World's fastest <span class="white-text">trigger actuator</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="home-second-section section">
+        <div class="container">
+            <div class="main-block">
+                <div class="custom-row">
+                    <div class="col-md-6">
+                        <img src="https://cdn11.bigcommerce.com/s-ngh35wij02/images/stencil/original/image-manager/sticker.png?t=1676239765" style="max-width: 100px;" class="lazyload" alt="available now"/>
+                        <div class="text-container">
+                            <h2 class="page-heading" style="padding-bottom:30px;">
+                                GatCrank
+                            </h2>
+                            <img src="https://cdn11.bigcommerce.com/s-ngh35wij02/images/stencil/original/image-manager/turbo-xl.png?t=1675978433" class="lazyload" alt="GatCrank Turbo"/>
+                            <a class="white-button custom-btn" href="/shop" title="Shop Now">Shop Now</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="image-container">
+                            <img src="https://cdn11.bigcommerce.com/s-ngh35wij02/images/stencil/original/image-manager/product-img.png?t=1675978432" class="lazyload" alt="GatCrank Turbo"/>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="custom-row">
+                    <div class="text-container">
+                        <h3 class="page-heading quantico-font text-center">The GatCrank Turbo XL</h3>
+                        <p>
+                            The next level in rapid fire trigger actuators. This all-aluminum design is not only durable and reliable, but it also provides a universal fit for a wider range of platforms than our previous model, the GatCrank Turbo.
+                        </p>
+                        <p>
+                            The GatCrank Turbo XL is designed with the latest technology and materials to ensure fast and consistent trigger response. Its all-aluminum construction is not only lightweight but also provides enhanced durability and protection from the elements.
+                        </p>
+                        <p>
+                            Don't settle for a limited-fit trigger actuator, upgrade to the GatCrank Turbo XL and experience the ultimate in rapid fire trigger performance. Order yours today and feel the difference for yourself!
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>    
+    </div>
+    <div class="home-third-section">
+        <div class="section">
+            <div class="container">
+                <div class="main-block">
+                    <h2 class="page-heading">More Fun<br>
+                    More <span class="red-text">Firepower.</span>
+                    </h2>
+                    <div class="image-container">
+                        <img src="https://cdn11.bigcommerce.com/s-ngh35wij02/images/stencil/original/image-manager/turboxl-2i1a2831-1-1-.jpg?t=1675873443" class="lazyload" alt="GatCrank - more fun more firepower">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="review-section section">
+        <div class="container">
+            <div class="main-section">
+                <h2 class="page-heading">
+                    GatCrank Reviews
+                </h2>
+                <div class="reviews"  data-slick='{
+                    "dots": false,
+                    "arrows": true,
+                    "centerPadding": "40px",
+                    "slidesToShow": 1,
+                    "responsive": [
+                    {
+                        "breakpoint": 800,
+                        "settings": {
+                          "arrows": false,
+                          "dots": true,
+                          "slidesToShow": 1
+                        }
+                      }
+                      ]
+                    }'>
+                    <div class="review-block">
+                        <svg width="35" height="23" viewBox="0 0 35 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.7019 11.4751H3.19149V19.8206H11.7019V11.4751ZM30.8503 11.4751L22.3399 11.4751V19.8206H30.8503V11.4751ZM9.25516 3.93955e-05L4.99995 8.34555L14.8933 8.34555L14.8933 22.9502H8.39233e-05V7.92827L4.04253 3.93955e-05H9.25516ZM28.4036 3.93955e-05L24.1484 8.34555L34.0417 8.34555V22.9502L19.1485 22.9502V7.92827L23.191 3.93955e-05H28.4036Z" fill="#C8202A"/>
+                        </svg>    
+                        <div class="review-description">
+                           Another common modification is the so-called gat crank, where this
+                  small silver crank is inserted into the trigger mechanism of a semiautomatic weapon, making it act
+                  like a fully automatic one.
+                        </div>
+                        <hr>
+                        <div class="author">
+                            <img src="https://cdn11.bigcommerce.com/s-ngh35wij02/images/stencil/original/image-manager/author.png?t=1675542718" alt="author profile">
+                            <p>PBS</p>
+                        </div>                            
+                    </div>
+                    <div class="review-block">
+                        <svg width="35" height="23" viewBox="0 0 35 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.7019 11.4751H3.19149V19.8206H11.7019V11.4751ZM30.8503 11.4751L22.3399 11.4751V19.8206H30.8503V11.4751ZM9.25516 3.93955e-05L4.99995 8.34555L14.8933 8.34555L14.8933 22.9502H8.39233e-05V7.92827L4.04253 3.93955e-05H9.25516ZM28.4036 3.93955e-05L24.1484 8.34555L34.0417 8.34555V22.9502L19.1485 22.9502V7.92827L23.191 3.93955e-05H28.4036Z" fill="#C8202A"/>
+                        </svg>    
+                        <div class="review-description">
+                            A simple bolt-on device, which allows the attached firearm to be
+                  fired by turning the crank. … it is highly effective for rapid-fire. Federal officials only consider a
+                  gun automatic ― and thus illegal to own without government clearances ― if it can fire multiple rounds
+                  with a pull of the trigger. That definition allows such devices, which do not involve physically
+                  pulling the trigger, to skirt current regulations.
+                        </div>
+                        <hr>
+                        <div class="author">
+                            <img src="https://cdn11.bigcommerce.com/s-ngh35wij02/images/stencil/original/image-manager/author.png?t=1675542718" alt="author profile">
+                            <p>Huffington Post</p>
+                        </div>                            
+                    </div>
+                    <div class="review-block">
+                        <svg width="35" height="23" viewBox="0 0 35 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.7019 11.4751H3.19149V19.8206H11.7019V11.4751ZM30.8503 11.4751L22.3399 11.4751V19.8206H30.8503V11.4751ZM9.25516 3.93955e-05L4.99995 8.34555L14.8933 8.34555L14.8933 22.9502H8.39233e-05V7.92827L4.04253 3.93955e-05H9.25516ZM28.4036 3.93955e-05L24.1484 8.34555L34.0417 8.34555V22.9502L19.1485 22.9502V7.92827L23.191 3.93955e-05H28.4036Z" fill="#C8202A"/>
+                        </svg>    
+                        <div class="review-description">
+                           A “trigger crank” or “gat crank” attaches onto the trigger guard, and
+                  the shooter then rotates the crank, which will the pull the trigger about 3x per rotation. … You can’t
+                  modify the internal components of the gun to make it fully automatic, but these workaround accessories
+                  are perfectly legal.
+                        </div>
+                        <hr>
+                        <div class="author">
+                            <img src="https://cdn11.bigcommerce.com/s-ngh35wij02/images/stencil/original/image-manager/author.png?t=1675542718" alt="author profile">
+                            <p>Time Magazine</p>
+                        </div>                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="insta-section">
+        <div class="section">
+        <div class="container">
+            <div class="main-section">
+                <h2 class="page-heading">SOCIAL @GATCRANK</h2>
+                <div class="main-block">
+                    <div class="custom-row">
+                        <div class="col-md-6">
+                            <div class="custom-row-block">
+                                <div class="custom-row">
+                                    <div class="col-md-6">
+                                        <div class="image-container">
+                                            <img src="https://cdn11.bigcommerce.com/s-ngh35wij02/images/stencil/original/image-manager/social-1.jpg?t=1675795335" class="lazyload" alt="insta-post">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="image-container second-image-container">
+                                            <img src="https://cdn11.bigcommerce.com/s-ngh35wij02/images/stencil/original/image-manager/ins-2.jpg?t=1675764947" class="lazyload" alt="insta-post">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="image-container image-bottom">
+                                <img src="https://cdn11.bigcommerce.com/s-ngh35wij02/images/stencil/original/image-manager/ins-3.jpg?t=1675764948" alt="insta-post">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="image-container image-top">
+                                <img src="https://cdn11.bigcommerce.com/s-ngh35wij02/images/stencil/original/image-manager/ins-6.jpg?t=1675764952" alt="insta-post">
+                            </div>
+                            <div class="custom-row-block">
+                                <div class="custom-row">
+                                    <div class="col-md-6">
+                                        <div class="image-container">
+                                            <img src="https://cdn11.bigcommerce.com/s-ngh35wij02/images/stencil/original/image-manager/ins-5.jpg?t=1675764951" class="lazyload" alt="insta-post">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="image-container">
+                                            <img src="https://cdn11.bigcommerce.com/s-ngh35wij02/images/stencil/original/image-manager/ins-4.jpg?t=1675764949" class="lazyload" alt="insta-post">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="main-block">
+                    <a href="https://www.instagram.com/gatcrank/" class="red-button" title="install">View More</a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    {{{region name="home_above_all"}}}
+    {{{region name="home_above_all1"}}}
+    <div class="container">
+        {{#if products.featured}}
+            {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
+        {{/if}}
+        {{{region name="home_below_featured_products"}}}
+    </div>
+    {{{region name="home_above_top_products"}}}
+    <div class="container">
+        {{#if products.top_sellers}}
+            {{> components/products/top products=products.top_sellers columns=theme_settings.homepage_top_products_column_count}}
+        {{/if}}
+        {{{region name="home_below_top_products"}}}
+    </div>
+    {{{region name="home_above_new_products"}}}
+    <div class="container">
+        {{#if products.new}}
+            {{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}
+        {{/if}}
+        {{{region name="home_below_new_products"}}}
+    </div>
+</div>
+{{/partial}}
+{{> layout/base}}
+
+<script>
+    var containerEl =  document.querySelector('#container');
+    containerEl.classList.remove('container');
+    var acc = document.getElementsByClassName("accordion-faq");
+      var i;
+    
+      for (i = 0; i <acc.length; i++) {
+        acc[i].addEventListener("click", function() {      
+             if (this.nextElementSibling.style.maxHeight) {
+               hidePanels();     // Hide All open Panels 
+            } else {
+               showPanel(this);  // Show the panel
+            }  
+        });
+      }
+    
+    // Function to Show a Panel
+    function showPanel(elem) {
+      hidePanels();
+      elem.classList.add("active");
+      elem.nextElementSibling.style.maxHeight = elem.nextElementSibling.scrollHeight + "px";
+    }
+    
+    function hidePanels() {
+      for (let i = 0; i < acc.length; i++) {
+          acc[i].classList.remove("active");
+          acc[i].nextElementSibling.style.maxHeight = null;
+      }
+    }
+    
+</script>

@@ -1,0 +1,68 @@
+// =============================================================================
+// GLOBAL SETTINGS
+// =============================================================================
+//
+// 1. Layout is dependant on Typography, so @import typography first.
+//
+// -----------------------------------------------------------------------------
+
+// Export
+@import "export/export";
+
+// Screen Sizes
+@import "screensizes/screensizes";
+
+// Z-index
+@import "z-index/z-index";
+
+// Color
+@import "color/color";
+
+// Typography
+@import "typography/typography"; // 1
+
+// Layout
+@import "layout/layout"; // 1
+
+// Containers
+@import "container/container";
+
+// Overlays
+@import "overlay/overlay";
+
+// Set these to false as we're using Citadel's styles
+$include-html-classes: false !default;
+$include-print-styles: false !default;
+$include-html-global-classes: $include-html-classes !default;
+
+// Typography scaling for better readability
+$h1-font-reduction: rem-calc(10) !default;
+$h2-font-reduction: rem-calc(10) !default;
+$h3-font-reduction: rem-calc(5) !default;
+$h4-font-reduction: rem-calc(5) !default;
+$h5-font-reduction: 0 !default;
+$h6-font-reduction: 0 !default;
+
+// Breakpoints - using Foundation v5.5.3 values
+$small-breakpoint: em-calc(640) !default;
+$medium-breakpoint: em-calc(1024) !default;
+$large-breakpoint: em-calc(1440) !default;
+$xlarge-breakpoint: em-calc(1920) !default;
+
+// Spacing using Citadel's spacing function
+$spacing-xs: spacing("quarter") !default;
+$spacing-sm: spacing("half") !default;
+$spacing-md: spacing("single") !default;
+$spacing-lg: spacing("double") !default;
+$spacing-xl: spacing("triple") !default;
+
+// Container padding
+$container-padding-x: $spacing-md !default;
+$container-padding-y: $spacing-md !default;
+
+// Z-index hierarchy (using Citadel's z-index function)
+$zIndex-1: zIndex("lowest") !default;
+$zIndex-2: zIndex("low") !default;
+$zIndex-3: zIndex("medium") !default;
+$zIndex-4: zIndex("high") !default;
+$zIndex-5: zIndex("highest") !default;

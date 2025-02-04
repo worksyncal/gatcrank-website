@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ locale_name }}">
+    <head>
+        <title>{{ head.title }}</title>
+        {{{ resourceHints }}}
+        {{{ head.meta_tags }}}
+        {{{ head.config }}}
+        {{#block "head"}} {{/block}}
+
+        <link href="{{ head.favicon }}" rel="shortcut icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        {{> components/common/polyfill-script }}
+        <script>window.consentManagerTranslations = `{{{langJson 'consent_manager'}}}`;</script>
+
+        {{!-- Load Lazysizes script ASAP so images will appear --}}
+        <script>
+            window.lazySizesConfig = window.lazySizesConfig || {};
+            window.lazySizesConfig.loadMode = 1;
+            window.lazySizesConfig.expand = 500;
+            window.lazySizesConfig.expFactor = 1.5;
+        </script>
+        <script async src="{{cdn 'assets/dist/theme-bundle.head_async.js' resourceHint='preload' as='script'}}"></script>
+        
+        {{getFontsCollection font-display='swap'}}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Titillium+Web:wght@700&family=Quantico:wght@700&family=Faster+One&display=swap" rel="stylesheet">
+        
+        {{!-- Inject custom font loading detection --}}
+        <style>
+            .fonts-loading { visibility: hidden; }
+            .fonts-loaded { visibility: visible; }
+            .js body { opacity: 0; }
+            .js.fonts-loaded body { opacity: 1; transition: opacity .1s; }
+        </style>
+
+        <script>
+            // Font loading detection with timeout
+            (function() {
+                document.documentElement.classList.add('fonts-loading');
+                if ('fonts' in document) {
+                    Promise.race([
+                        Promise.all([
+                            document.fonts.load('700 1em Poppins'),
+                            document.fonts.load('700 1em Titillium Web'),
+                            document.fonts.load('700 1em Quantico'),
+                            document.fonts.load('400 1em Faster One')
+                        ]),
+                        new Promise(resolve => setTimeout(resolve, 3000)) // 3 second timeout
+                    ]).then(function () {
+                        document.documentElement.classList.remove('fonts-loading');
+                        document.documentElement.classList.add('fonts-loaded');
+                    }).catch(function() {
+                        document.documentElement.classList.remove('fonts-loading');
+                        document.documentElement.classList.add('fonts-loaded');
+                    });
+                } else {
+                    document.documentElement.classList.remove('fonts-loading');
+                    document.documentElement.classList.add('fonts-loaded');
+                }
+            })();
+        </script>
+
+        {{{stylesheet '/assets/css/theme.css'}}}
+        {{{head.scripts}}}
+
+        {{!-- Inject BigCommerce data --}}
+        {{~inject 'zoomSize' theme_settings.zoom_size}}
+        {{~inject 'productSize' theme_settings.product_size}}
+        {{~inject 'genericError' (lang 'common.generic_error')}}
+        {{~inject 'urls' urls}}
+        {{~inject 'secureBaseUrl' settings.secure_base_url}}
+        {{~inject 'cartId' cart_id}}
+        {{~inject 'template' template}}
+        {{~inject 'validationDictionaryJSON' (langJson 'validation_messages')}}
+        {{~inject 'validationFallbackDictionaryJSON' (langJson 'validation_fallback_messages')}}
+        {{~inject 'validationDefaultDictionaryJSON' (langJson 'validation_default_messages')}}
+        {{~inject 'carouselArrowAndDotAriaLabel' (lang 'carousel.arrow_and_dot_aria_label')}}
+        {{~inject 'carouselActiveDotAriaLabel' (lang 'carousel.active_dot_aria_label')}}
+        {{~inject 'carouselContentAnnounceMessage' (lang 'carousel.content_announce_message')}}
+
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-PX5J3BM');</script>
+    </head>
+    <body class="{{#if template '===' 'pages/home'}} main-home-page{{else if template '===' 'pages/contact-us'}} main-contact-us-page{{else if template '===' 'pages/product'}} main-product-page{{else if template '===' 'pages/category'}} main-category-page{{/if}}">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PX5J3BM"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+        <script async src="{{cdn 'img/icon-sprite.svg'}}"></script>
+        <svg class="icons-svg-sprite"></svg>
+
+        {{> components/common/header }}
+        {{> components/common/body }}
+        {{> components/common/footer }}
+
+        <script>
+            window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";
+            function onThemeBundleMain() {
+                window.stencilBootstrap("{{page_type}}", {{jsContext}}).load();
+            }
+        </script>
+        
+        <script async defer src="{{cdn 'assets/dist/theme-bundle.main.js' resourceHint='preload' as='script'}}" onload="onThemeBundleMain()"></script>
+
+        {{{footer.scripts}}}
+        
+        <!-- Mouseflow -->
+        <script async defer>
+            window._mfq = window._mfq || [];
+            (function() {
+                var mf = document.createElement("script");
+                mf.type = "text/javascript"; 
+                mf.async = true;
+                mf.defer = true;
+                mf.src = "//cdn.mouseflow.com/projects/5a19f956-d630-4049-9698-2f013b2e04e7.js";
+                document.getElementsByTagName("head")[0].appendChild(mf);
+            })();
+        </script>
+    </body>
+</html>

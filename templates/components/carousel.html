@@ -1,0 +1,87 @@
+<section class="heroCarousel"
+    data-slick='{
+        "arrows": {{arrows}},
+        "mobileFirst": true,
+        "slidesToShow": 1,
+        "slidesToScroll": 1,
+        "autoplay": true,
+        "autoplaySpeed": {{carousel.swap_frequency}},
+        "slide": "[data-hero-slide]",
+        "accessibility": true,
+        "adaptiveHeight": true,
+        "dots": true,
+        "pauseOnHover": true,
+        "responsive": [
+            {
+                "breakpoint": 800,
+                "settings": {
+                    "arrows": true
+                }
+            }
+        ]
+    }'
+    role="region"
+    aria-roledescription="carousel"
+    aria-label="{{lang 'carousel.label'}}"
+>
+    {{#each carousel.slides}}
+    {{#if button_text}}
+    <div data-hero-slide="{{@index}}" role="group" aria-roledescription="slide" aria-label="{{lang 'carousel.slide_number' slide_number=(add @index 1)}}">
+    {{else}}
+    <a href="{{url}}" 
+       data-hero-slide="{{@index}}" 
+       role="group" 
+       aria-roledescription="slide" 
+       aria-label="{{#if this.alt_text.length '!=' 0}}{{this.alt_text}}{{else}}{{lang 'carousel.slide_number' slide_number=(add @index 1)}}{{/if}}"
+       {{#if ../theme_settings.data_tag_enabled}}data-event-type="promotion-click"{{/if}}
+    >
+    {{/if}}
+        <div class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}} {{#if @first}}heroCarousel-slide--first{{/if}}">
+            {{#if button_text}}
+            <a href="{{url}}" 
+               class="heroCarousel-image-wrapper"
+               {{#if ../theme_settings.data_tag_enabled}}data-event-type="promotion-click"{{/if}}
+            >
+            {{else}}
+            <div class="heroCarousel-image-wrapper">
+            {{/if}}
+            {{#if @first}}
+                {{> components/common/responsive-img
+                    image=stencil_image
+                    class="heroCarousel-image"
+                    fallback_size='1280w'
+                    lazyload='disabled'
+                    loading="eager"
+                    fetchpriority="high"
+                }}
+            {{else}}
+                {{> components/common/responsive-img
+                    image=stencil_image
+                    class="heroCarousel-image"
+                    fallback_size='1280w'
+                    lazyload='lazyload'
+                    loading="lazy"
+                }}
+            {{/if}}
+            {{#if button_text}}
+            </a>
+            {{else}}
+            </div>
+            {{/if}}
+            {{#or heading text button_text}}
+                {{> components/carousel-content}}
+            {{/or}}
+        </div>
+    {{#if button_text}}
+    </div>
+    {{else}}
+    </a>
+    {{/if}}
+    {{/each}}
+    {{#if carousel.slides.length '>' 1}}
+        {{> components/carousel-content-announcement}}
+        {{#if play_pause_button}}
+            {{> components/carousel-play-pause-button}}
+        {{/if}}
+    {{/if}}
+</section>

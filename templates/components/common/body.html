@@ -1,0 +1,8 @@
+<main class="body{{#if template '===' 'pages/home'}} home-page{{else if template '===' 'pages/contact-us'}} contact-us-page{{else if template '===' 'pages/product'}} product-page{{else if template '===' 'pages/category'}} category-page{{/if}}" id="main-content" role="main" data-currency-code="{{currency_selector.active_currency_code}}">
+    {{#block "hero"}} {{/block}}
+    <div class="container" id="container">
+        {{#block "page"}} {{/block}}
+    </div>
+    {{> components/common/modal/modal}}
+    {{> components/common/alert/alert-modal}}
+</main>

@@ -1,0 +1,182 @@
+// HERO CAROUSEL
+// -----------------------------------------------------------------------------
+//
+// Purpose: Styles the hero carousel component with improved performance and accessibility
+//
+// 1. Use object-fit on the image tag to keep aspect ratio and cover the space
+// 2. Add will-change for better performance
+// 3. Improve accessibility with focus styles
+// -----------------------------------------------------------------------------
+
+.heroCarousel {
+    margin-bottom: spacing("double") + spacing("single");
+    margin-top: -(spacing("single"));
+    min-width: 100%;
+    position: relative;
+    width: 1px;
+    will-change: transform;
+
+    @include breakpoint("medium") {
+        margin-top: -(spacing("single") + spacing("base"));
+    }
+
+    &.slick-initialized {
+        opacity: 1;
+        transition: opacity 0.3s ease;
+
+        @include breakpoint("small") {
+            max-height: remCalc(400px);
+        }
+
+        @include breakpoint("medium") {
+            max-height: remCalc(600px);
+        }
+    }
+
+    // Hide non-first slides before initialization
+    &:not(.slick-initialized) :not(.heroCarousel-slide--first).heroCarousel-slide {
+        display: none;
+    }
+
+    a {
+        text-decoration: none;
+        
+        &:focus {
+            outline: 2px solid stencilColor("color-primary");
+            outline-offset: 2px;
+        }
+    }
+
+    .slick-next,
+    .slick-prev {
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        height: 40px;
+        margin: 0;
+        padding: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: background-color 0.3s ease;
+        width: 40px;
+        z-index: 1;
+
+        &:hover,
+        &:focus {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        &:focus {
+            outline: 2px solid stencilColor("color-primary");
+            outline-offset: 2px;
+        }
+    }
+
+    .slick-next {
+        right: 15px;
+
+        @include breakpoint("medium") {
+            right: 25px;
+        }
+    }
+
+    .slick-prev {
+        left: 15px;
+
+        @include breakpoint("medium") {
+            left: 25px;
+        }
+    }
+
+    .slick-dots {
+        bottom: spacing("third");
+        z-index: 1;
+
+        @include breakpoint("medium") {
+            bottom: spacing("single");
+        }
+
+        li {
+            @include carouselOpaqueBackgrounds($slick-dot-bgColor);
+            
+            button {
+                &:focus {
+                    outline: 2px solid stencilColor("color-primary");
+                    outline-offset: 2px;
+                }
+            }
+        }
+    }
+
+    .heroCarousel-slide {
+        position: relative;
+
+        &.is-square-image-type,
+        &.is-vertical-image-type {
+            .heroCarousel-image-wrapper {
+                height: 100vw;
+                max-height: 80vh;
+                position: relative;
+            }
+        }
+
+        .heroCarousel-image {
+            object-fit: cover;
+            font-family: 'object-fit: cover'; // IE11 fallback
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+.heroCarousel-content {
+    background-color: rgba($carousel-bgColor, 0.8);
+    left: 0;
+    padding: spacing("single");
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+
+    @include breakpoint("medium") {
+        background-color: rgba($carousel-bgColor, 0.9);
+        max-width: 50%;
+        padding: spacing("double");
+        right: auto;
+    }
+
+    &--empty {
+        display: none;
+    }
+}
+
+.heroCarousel-title {
+    color: stencilColor("carousel-title-color");
+    font-size: fontSize("large");
+    margin-bottom: spacing("half");
+
+    @include breakpoint("medium") {
+        font-size: fontSize("larger");
+    }
+}
+
+.heroCarousel-description {
+    color: stencilColor("carousel-description-color");
+    font-size: fontSize("base");
+    margin-bottom: spacing("single");
+
+    @include breakpoint("medium") {
+        font-size: fontSize("small");
+    }
+}
+
+.heroCarousel-action {
+    margin: 0;
+    width: auto;
+
+    &:focus {
+        outline: 2px solid stencilColor("color-primary");
+        outline-offset: 2px;
+    }
+}

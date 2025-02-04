@@ -1,0 +1,21 @@
+<div class="heroCarousel-content{{#and (if heading '==' false) (if text '==' false)}} heroCarousel-content--empty{{/and}}" {{#if heading}}role="complementary" aria-label="{{heading}}"{{/if}}>
+    {{#if heading}}
+        <h2 class="heroCarousel-title">{{{heading}}}</h2>
+    {{/if}}
+    {{#if text}}
+        <div class="heroCarousel-description">{{{text}}}</div>
+    {{/if}}
+    {{#if button_text}}
+        <a href="{{url}}" 
+           class="heroCarousel-action button button--primary button--large"
+           aria-label="{{#if this.alt_text.length '!=' 0}}{{this.alt_text}}{{else}}{{lang 'carousel.slide_number' slide_number=(add @index 1)}}{{/if}}, {{button_text}}"
+           {{#if ../theme_settings.data_tag_enabled}}
+           data-event-type="promotion-click"
+           data-promotion-id="{{id}}"
+           data-promotion-name="{{heading}}"
+           {{/if}}
+        >
+            {{{button_text}}}
+        </a>
+    {{/if}}
+</div>

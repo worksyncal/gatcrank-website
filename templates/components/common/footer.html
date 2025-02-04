@@ -1,0 +1,131 @@
+{{#if banners.bottom}}
+    {{#if settings.data_tag_enabled}}
+        <div class="banners" data-banner-location="bottom">
+            {{#each (limit banners.bottom_metadata 1)}}
+                <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-name="{{this.banner-name}}">
+                    <div data-event-type="promotion-click">
+                        {{{this.content}}}
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{else}}
+        <div class="banners" data-banner-location="bottom">
+            <div class="banner">
+                {{{limit banners.bottom 1}}}
+            </div>
+        </div>
+    {{/if}}
+
+{{/if}}
+<footer class="footer" role="contentinfo">
+    <h2 class="footer-title-sr-only">{{lang 'footer.title'}}</h2>
+    <div class="container">
+        <section class="footer-info">
+            <article class="footer-info-col store-info" data-section-type="footer-webPages">
+                <h3 class="footer-info-heading logo-heading">
+                    <img class="lazyload" src="https://cdn11.bigcommerce.com/s-ngh35wij02/images/stencil/original/image-manager/{{theme_settings.footer_image}}" alt="GatCrank"/>
+                    {{theme_settings.footer_store_title}}
+                </h3>
+                    <p>
+                        {{theme_settings.footer_address}}
+                    </p>
+                    <a class="footer-email" href="{{theme_settings.footer_email}}">{{theme_settings.footer_email_text}}</a>
+            </article>
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
+                <h3 class="footer-info-heading">Quicklinks</h3>
+                <ul class="footer-info-list">
+                   <li>
+                        <a href="{{theme_settings.footer_link1}}">{{theme_settings.footer_linktext1}}</a>
+                    </li>
+                    <li>
+                        <a href="{{theme_settings.footer_link2}}">{{theme_settings.footer_linktext2}}</a>
+                    </li>
+                    <li>
+                        <a href="{{theme_settings.footer_link3}}">{{theme_settings.footer_linktext3}}</a>
+                    </li>
+                    <li>
+                        <a href="{{theme_settings.footer_link4}}">{{theme_settings.footer_linktext4}}</a>
+                    </li>
+                    <li>
+                        <a href="{{theme_settings.footer_link5}}">{{theme_settings.footer_linktext5}}</a>
+                    </li> 
+                </ul>
+            </article>
+
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
+                <h3 class="footer-info-heading">Info</h3>
+                <ul class="footer-info-list">
+                    <li>
+                        <a href="{{theme_settings.footer_link6}}">{{theme_settings.footer_linktext6}}</a>
+                    </li>
+                    <li>
+                        <a href="{{theme_settings.footer_link7}}">{{theme_settings.footer_linktext7}}</a>
+                    </li>
+                    <li>
+                        <a href="{{theme_settings.footer_link8}}">{{theme_settings.footer_linktext8}}</a>
+                    </li>
+                    <li>
+                        <a href="{{theme_settings.footer_link9}}">{{theme_settings.footer_linktext9}}</a>
+                    </li>
+                    <li>
+                        <a href="{{theme_settings.footer_link10}}">{{theme_settings.footer_linktext10}}</a>
+                    </li>
+                   
+                </ul>
+            </article>
+
+            {{#and theme_settings.shop_by_brand_show_footer shop_by_brand.length}}
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-brands">
+                <h3 class="footer-info-heading">{{lang 'footer.brands'}}</h3>
+                <ul class="footer-info-list">
+                    {{#each shop_by_brand}}
+                        <li>
+                            <a href="{{url}}">{{name}}</a>
+                        </li>
+                    {{/each}}
+                    <li><a href="{{urls.brands}}">{{lang 'common.view_all'}}</a></li>
+                </ul>
+            </article>
+            {{/and}}
+            {{#if theme_settings.show_subscription_form}}
+                <article class="footer-info-col" data-section-type="newsletterSubscription">
+                    {{#if settings.show_newsletter_box}}
+                        {{> components/common/subscription-form}}
+                    {{/if}}
+                    {{> components/common/payment-icons}}
+                </article>
+            {{/if}}
+            {{#if theme_settings.show_subscription_form}}
+                <article class="footer-info-col" data-section-type="newsletterSubscription">
+                    {{#if settings.show_newsletter_box}}
+                        {{> components/common/subscription-form}}
+                    {{/if}}
+                    {{> components/common/payment-icons}}
+                </article>
+            {{/if}}
+            {{#if theme_settings.show_social_media}}
+                <article class="footer-info-col" data-section-type="newsletterSubscription">
+                    <h3 class="footer-info-heading">{{lang 'social.connect'}}</h3>
+                    {{> components/common/social-links}}
+                </article>
+            {{/if}}
+        </section>
+        {{#if settings.paypal_commerce_credit_message}}
+        <div class="footer-copyright">
+            <p class="paypal-credit">{{nl2br settings.paypal_commerce_credit_message}}</p>
+        </div>
+        {{/if}}
+        {{#if theme_settings.show_powered_by}}
+            <div class="footer-copyright">
+                <p class="powered-by">{{lang 'footer.powered_by'}} <a href="https://www.bigcommerce.com?utm_source=merchant&amp;utm_medium=poweredbyBC" rel="nofollow">BigCommerce</a></p>
+            </div>
+        {{/if}}
+        {{#if theme_settings.show_copyright_footer}}
+            <div class="footer-copyright">
+                <p class="powered-by">&copy; {{moment format="YYYY"}} {{settings.store_name}}, All rights reserved </p>
+            </div>
+        {{/if}}
+    </div>
+    {{{region name="ssl_site_seal--global"}}}
+</footer>
